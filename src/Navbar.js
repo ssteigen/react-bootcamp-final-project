@@ -8,6 +8,8 @@ import { Close } from "@mui/icons-material";
 
 import "./Navbar.css";
 
+import { Link } from "react-router-dom";
+
 export class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +35,7 @@ export class Navbar extends Component {
     return (
       <header className="Navbar">
         <div className="logo">
-          <a href="#">React Color Picker</a>
+          <Link to="/">React Color Picker</Link>
         </div>
         <div className="Navbar-slider-container">
           <span>Level: {level}</span>

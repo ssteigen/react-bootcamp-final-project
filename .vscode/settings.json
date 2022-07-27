@@ -18,5 +18,8 @@
     "titleBar.inactiveBackground": "#fc53af99",
     "titleBar.inactiveForeground": "#15202b99"
   },
-  "peacock.color": "#fc53af"
+  "peacock.color": "#fc53af",
+  "cSpell.words": [
+    "bootcamp"
+  ]
 }

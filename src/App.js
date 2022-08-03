@@ -5,6 +5,7 @@ import { seedColors } from "./seedColors";
 
 import { generatePalette } from "./colorHelpers";
 import { PaletteList } from "./PaletteList";
+import SingleColorPalette from "./SingleColorPalette";
 
 function findPalette(id) {
   return seedColors.find((palette) => {
@@ -37,7 +38,7 @@ function App() {
           />
           <Route
             path="/palette/:paletteId/:colorId/"
-            render={() => <h2>Single color page</h2>}
+            render={() => <SingleColorPalette />}
           />
         </Switch>
 

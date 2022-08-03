@@ -4,11 +4,17 @@ import "./MiniPalette.css";
 export default function MiniPalette(props) {
   const { paletteName, colors, emoji } = props;
 
-  return (
-    <div className="MiniPalette">
-      <div className="MiniPalette-colors">
+  const miniColorBoxes = colors.map((color) => (
+    <div
+      key={color.name}
+      className="MiniPalette-miniColor"
+      style={{ backgroundColor: color.color }}
+    ></div>
+  ));
 
-      </div>
+  return (
+    <div className="MiniPalette" onClick={props.handleClick}>
+      <div className="MiniPalette-colors">{miniColorBoxes}</div>
       <h5 className="MiniPalette-title">
         {paletteName} <span className="MiniPalette-emoji">{emoji}</span>
       </h5>

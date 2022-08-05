@@ -53,6 +53,14 @@
   width: 100%;
 }
 
+.ColorBox .light-text {
+  color: white !important;
+}
+
+.ColorBox .dark-text {
+  color: black !important;
+}
+
 .ColorBox .see-more {
   background: rgba(255, 255, 255, 0.3);
   bottom: 0px;

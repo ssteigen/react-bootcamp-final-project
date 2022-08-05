@@ -6,7 +6,7 @@ export default class PaletteFooter extends Component {
     return (
       <footer className="Palette-footer">
         {paletteName}
-        <span className={emoji}>{emoji}</span>
+        <span className="emoji">{emoji}</span>
       </footer>
     );
   }

@@ -24,7 +24,7 @@
 }
 
 .Navbar-slider-container {
-
+  display: flex;
 }
 
 .Navbar-slider {

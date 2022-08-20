@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-
-import { IconButton, MenuItem, Select, Snackbar } from "@mui/material";
-import { Close } from "@mui/icons-material";
 
 import "./Navbar.css";
 
@@ -76,7 +77,7 @@ export class Navbar extends Component {
               key="close"
               aria-label="close"
             >
-              <Close />
+              <CloseIcon />
             </IconButton>,
           ]}
         />

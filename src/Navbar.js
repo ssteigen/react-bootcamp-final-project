@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import Snackbar from "@material-ui/core/Snackbar";
+
 import IconButton from "@material-ui/core/IconButton";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
+import Snackbar from "@material-ui/core/Snackbar";
 import CloseIcon from "@material-ui/icons/Close";
+
 import Slider from "rc-slider";
-import "rc-slider/assets/index.css";
+import { Link } from "react-router-dom";
 
 import "./Navbar.css";
-
-import { Link } from "react-router-dom";
+import "rc-slider/assets/index.css";
 
 export class Navbar extends Component {
   constructor(props) {

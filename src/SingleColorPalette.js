@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+
+import { Link } from "react-router-dom";
+
 import "./SingleColorPalette.css";
+
 import { ColorBox } from "./ColorBox";
 import { Navbar } from "./Navbar";
 import PaletteFooter from "./PaletteFooter";
-import { Link } from "react-router-dom";
 
 export default class SingleColorPalette extends Component {
   constructor(props) {
@@ -49,7 +52,9 @@ export default class SingleColorPalette extends Component {
         <div className="Palette-colors">
           {colorBoxes}
           <div className="Palette-go-back ColorBox">
-            <Link to={`/palette/${id}`} className="back-button">Go Back</Link>
+            <Link to={`/palette/${id}`} className="back-button">
+              Go Back
+            </Link>
           </div>
         </div>
         <PaletteFooter paletteName={paletteName} emoji={emoji} />

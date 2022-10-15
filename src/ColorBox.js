@@ -6,8 +6,6 @@ import chroma from "chroma-js";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Link } from "react-router-dom";
 
-import "./ColorBox.css";
-
 const styles = {
   ColorBox: {
     cursor: "pointer",

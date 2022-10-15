@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import { generatePalette } from "./colorHelpers";
 import NewPaletteForm from "./NewPaletteForm";
 import Palette from "./Palette";
-import { PaletteList } from "./PaletteList";
+import PaletteList from "./PaletteList";
 import { seedColors } from "./seedColors";
 import SingleColorPalette from "./SingleColorPalette";
 

@@ -7,46 +7,7 @@ import { Link } from "react-router-dom";
 import ColorBox from "./ColorBox";
 import { Navbar } from "./Navbar";
 import PaletteFooter from "./PaletteFooter";
-
-const styles = {
-  Palette: {
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-  },
-  colors: {
-    height: "90%",
-  },
-  goBack: {
-    width: "20%",
-    height: "50%",
-    margin: "0 auto",
-    display: "inline-block",
-    position: "relative",
-    cursor: "pointer",
-    marginBottom: "-3.5px",
-    opacity: 1,
-    backgroundColor: "black",
-    "& a": {
-      background: "rgba(255, 255, 255, 0.3)",
-      border: "none",
-      color: "white",
-      display: "inline-block",
-      fontSize: "1rem",
-      height: "30px",
-      left: "50%",
-      lineHeight: "30px",
-      marginLeft: "-50px" /* half the width of the button */,
-      marginTop: "-15px" /* half the height of the button */,
-      position: "absolute",
-      textAlign: "center",
-      textDecoration: "none",
-      textTransform: "uppercase",
-      top: "50%",
-      width: "100px",
-    },
-  },
-};
+import SingleColorPaletteStyles from "./styles/SingleColorPaletteStyles";
 
 class SingleColorPalette extends Component {
   constructor(props) {
@@ -102,4 +63,4 @@ class SingleColorPalette extends Component {
   }
 }
 
-export default withStyles(styles)(SingleColorPalette);
+export default withStyles(SingleColorPaletteStyles)(SingleColorPalette);

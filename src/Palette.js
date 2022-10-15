@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "./Palette.css";
 
-import { ColorBox } from "./ColorBox";
+import ColorBox from "./ColorBox";
 import { Navbar } from "./Navbar";
 import PaletteFooter from "./PaletteFooter";
 
@@ -33,7 +33,7 @@ export class Palette extends Component {
         background={color[format]}
         name={color.name}
         moreUrl={`/palette/${id}/${color.id}`}
-        showLink={true}
+        showingFullPalette={true}
       />
     ));
 

@@ -5,7 +5,7 @@ import withStyles from "@material-ui/styles/withStyles";
 import { Link } from "react-router-dom";
 
 import ColorBox from "./ColorBox";
-import { Navbar } from "./Navbar";
+import Navbar from "./Navbar";
 import PaletteFooter from "./PaletteFooter";
 import SingleColorPaletteStyles from "./styles/SingleColorPaletteStyles";
 

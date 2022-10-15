@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import "./PaletteList.css";
-import MiniPalette from "./MiniPalette";
+
 import { Link } from "react-router-dom";
+
+import "./PaletteList.css";
+
+import MiniPalette from "./MiniPalette";
 
 export class PaletteList extends Component {
   goToPalette(id) {

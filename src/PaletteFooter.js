@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class PaletteFooter extends Component {
   render() {
-    const {paletteName, emoji} = this.props;
+    const { paletteName, emoji } = this.props;
     return (
       <footer className="Palette-footer">
         {paletteName}

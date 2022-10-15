@@ -1,0 +1,13 @@
+{
+  "importOrder": [
+    "(react)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@material-ui/(.*)$",
+    "^([^.]+)$",
+    "^.*\\.(css)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderCaseInsensitive": true
+}

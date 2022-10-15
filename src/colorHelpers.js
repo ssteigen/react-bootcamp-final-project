@@ -6,21 +6,12 @@ const levels = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 function getRange(hexColor) {
   const end = "#fff";
 
-  return [
-    chroma(hexColor)
-      .darken(1.4)
-      .hex(),
-    hexColor,
-    end
-  ];
+  return [chroma(hexColor).darken(1.4).hex(), hexColor, end];
 }
 
 // Generate a color scale with a given color.
 function getScale(hexColor, numberOfColors) {
-  return chroma
-    .scale(getRange(hexColor))
-    .mode("lab")
-    .colors(numberOfColors);
+  return chroma.scale(getRange(hexColor)).mode("lab").colors(numberOfColors);
 }
 
 export function generatePalette(starterPalette) {
@@ -44,7 +35,10 @@ export function generatePalette(starterPalette) {
         id: color.name.toLowerCase().replace(/ /g, "-"),
         hex: scale[i],
         rgb: chroma(scale[i]).css(),
-        rgba: chroma(scale[i]).css().replace("rgb", "rgba").replace(")", ",1.0)")
+        rgba: chroma(scale[i])
+          .css()
+          .replace("rgb", "rgba")
+          .replace(")", ",1.0)"),
       });
     }
   }

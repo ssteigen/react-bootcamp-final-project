@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+
+import chroma from "chroma-js";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Link } from "react-router-dom";
+
 import "./ColorBox.css";
-import chroma from "chroma-js";
 
 export class ColorBox extends Component {
   constructor(props) {
@@ -41,7 +43,9 @@ export class ColorBox extends Component {
             <div className="box-content">
               <span className={isDarkColor && "light-text"}>{name}</span>
             </div>
-            <button className={`copy-button ${isLightColor && "dark-text"}`}>Copy</button>
+            <button className={`copy-button ${isLightColor && "dark-text"}`}>
+              Copy
+            </button>
           </div>
           {showLink && (
             <Link to={moreUrl} onClick={(e) => e.stopPropagation()}>

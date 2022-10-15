@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./MiniPalette.css";
 
 export default function MiniPalette(props) {

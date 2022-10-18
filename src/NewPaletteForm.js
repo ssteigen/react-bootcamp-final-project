@@ -15,8 +15,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import classNames from "classnames";
 import { ChromePicker } from "react-color";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
+import { arrayMove } from "react-sortable-hoc";
 
-import DraggableColorBox from "./DraggableColorBox";
+import DraggableColorList from "./DraggableColorList";
 
 const drawerWidth = 400;
 
@@ -94,6 +95,7 @@ class NewPaletteForm extends Component {
     this.addNewColor = this.addNewColor.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.removeColor = this.removeColor.bind(this);
   }
 
   componentDidMount() {
@@ -103,7 +105,7 @@ class NewPaletteForm extends Component {
       );
     });
 
-    ValidatorForm.addValidationRule("isColorUnique", (value) => {
+    ValidatorForm.addValidationRule("isColorUnique", () => {
       return this.state.colors.every(
         ({ color }) => color !== this.state.currentColor
       );
@@ -111,7 +113,7 @@ class NewPaletteForm extends Component {
 
     ValidatorForm.addValidationRule("isPaletteNameUnique", (value) => {
       return this.props.palettes.every(
-        ({ name }) => name.toLowerCase() !== value.toLowerCase()
+        ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
       );
     });
   }
@@ -144,7 +146,7 @@ class NewPaletteForm extends Component {
   }
 
   handleSubmit() {
-    const newPaletteName = this.state.paletteName;
+    const newPaletteName = this.state.newPaletteName;
 
     const newPalette = {
       paletteName: newPaletteName,
@@ -160,6 +162,12 @@ class NewPaletteForm extends Component {
       colors: this.state.colors.filter((color) => color.name !== colorName),
     });
   }
+
+  onSortEnd = ({ oldIndex, newIndex }) => {
+    this.setState(({ colors }) => ({
+      colors: arrayMove(colors, oldIndex, newIndex),
+    }));
+  };
 
   render() {
     const { classes } = this.props;
@@ -261,14 +269,12 @@ class NewPaletteForm extends Component {
           })}
         >
           <div className={classes.drawerHeader} />
-          {this.state.colors.map((color) => (
-            <DraggableColorBox
-              key={color.name.toLowerCase().replace(/ /g, "-")}
-              color={color.color}
-              name={color.name}
-              handleClick={() => this.removeColor(color.name)}
-            />
-          ))}
+          <DraggableColorList
+            colors={this.state.colors}
+            removeColor={this.removeColor}
+            axis="xy"
+            onSortEnd={this.onSortEnd}
+          />
         </main>
       </div>
     );

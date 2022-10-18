@@ -8,7 +8,7 @@ import { slugify } from "./utilities";
 const DraggableColorList = SortableContainer(({ colors, removeColor }) => {
   return (
     <div style={{ height: "100%" }}>
-      {colors.map((color, index) => (
+      {colors && colors.map((color, index) => (
         <DraggableColorBox
           index={index}
           key={slugify(color.name)}

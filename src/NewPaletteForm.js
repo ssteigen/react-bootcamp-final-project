@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 
-import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import MenuIcon from "@material-ui/icons/Menu";
 
 import classNames from "classnames";
 import { ChromePicker } from "react-color";
@@ -18,6 +14,7 @@ import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { arrayMove } from "react-sortable-hoc";
 
 import DraggableColorList from "./DraggableColorList";
+import PaletteFormNav from "./PaletteFormNav";
 import { slugify } from "./utilities";
 
 const drawerWidth = 400;
@@ -93,7 +90,6 @@ class NewPaletteForm extends Component {
       currentColor: "teal",
       newColorName: "",
       colors: this.props.palettes[0].colors,
-      newPaletteName: "",
     };
 
     this.updateCurrentColor = this.updateCurrentColor.bind(this);
@@ -115,12 +111,6 @@ class NewPaletteForm extends Component {
     ValidatorForm.addValidationRule("isColorUnique", () => {
       return this.state.colors.every(
         ({ color }) => color !== this.state.currentColor
-      );
-    });
-
-    ValidatorForm.addValidationRule("isPaletteNameUnique", (value) => {
-      return this.props.palettes.every(
-        ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
       );
     });
   }
@@ -152,9 +142,7 @@ class NewPaletteForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleSubmit() {
-    const newPaletteName = this.state.newPaletteName;
-
+  handleSubmit(newPaletteName) {
     const newPalette = {
       paletteName: newPaletteName,
       id: slugify(newPaletteName),
@@ -191,50 +179,19 @@ class NewPaletteForm extends Component {
   }
 
   render() {
-    const { classes, maxColors } = this.props;
+    const { classes, maxColors, palettes } = this.props;
     const { open, colors } = this.state;
     const paletteIsFull = colors.length >= maxColors;
 
     return (
       <div className={classes.root}>
-        <CssBaseline />
-        <AppBar
-          position="fixed"
-          color="default"
-          className={classNames(classes.appBar, {
-            [classes.appBarShift]: open,
-          })}
-        >
-          <Toolbar disableGutters={!open}>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              onClick={this.handleDrawerOpen}
-              className={classNames(classes.menuButton, open && classes.hide)}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
-              Create A Palette
-            </Typography>
-            <ValidatorForm onSubmit={this.handleSubmit}>
-              <TextValidator
-                label="Palette Name"
-                name="newPaletteName"
-                value={this.state.newPaletteName}
-                onChange={this.handleChange}
-                validators={["required", "isPaletteNameUnique"]}
-                errorMessages={[
-                  "Palette name is required",
-                  "Palette name already used",
-                ]}
-              />
-              <Button type="submit" variant="contained" color="primary">
-                Save Palette
-              </Button>
-            </ValidatorForm>
-          </Toolbar>
-        </AppBar>
+        <PaletteFormNav
+          open={open}
+          classes={classes}
+          palettes={palettes}
+          handleSubmit={this.handleSubmit}
+          handleDrawerOpen={this.handleDrawerOpen}
+        />
         <Drawer
           className={classes.drawer}
           variant="persistent"

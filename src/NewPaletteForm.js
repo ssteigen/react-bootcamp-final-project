@@ -18,6 +18,7 @@ import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { arrayMove } from "react-sortable-hoc";
 
 import DraggableColorList from "./DraggableColorList";
+import { slugify } from "./utilities";
 
 const drawerWidth = 400;
 
@@ -150,7 +151,7 @@ class NewPaletteForm extends Component {
 
     const newPalette = {
       paletteName: newPaletteName,
-      id: newPaletteName.toLowerCase().replace(/ /g, "-"),
+      id: slugify(newPaletteName),
       colors: this.state.colors,
     };
     this.props.savePalette(newPalette);

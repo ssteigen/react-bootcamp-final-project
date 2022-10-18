@@ -1,4 +1,5 @@
 import chroma from "chroma-js";
+import { slugify } from "./utilities";
 
 const levels = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
@@ -32,7 +33,7 @@ export function generatePalette(starterPalette) {
     for (let i in scale) {
       newPalette.colors[levels[i]].push({
         name: `${color.name} ${levels[i]}`,
-        id: color.name.toLowerCase().replace(/ /g, "-"),
+        id: slugify(color.name),
         hex: scale[i],
         rgb: chroma(scale[i]).css(),
         rgba: chroma(scale[i])

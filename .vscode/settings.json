@@ -20,7 +20,17 @@
     "commandCenter.border": "#15202b99"
   },
   "peacock.color": "#fc53af",
+  "cSpell.ignorePaths": [
+    "package-lock.json",
+    "node_modules",
+    "vscode-extension",
+    ".git/objects",
+    ".vscode",
+    ".vscode-insiders",
+    "yarn.lock"
+  ],
   "cSpell.words": ["bootcamp", "trivago"],
+  "cSpell.dictionaries": ["html"],
   "todo-tree.tree.autoRefresh": true,
   "todo-tree.highlights.customHighlight": {
     "WARN": {

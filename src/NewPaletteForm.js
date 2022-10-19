@@ -178,7 +178,9 @@ class NewPaletteForm extends Component {
           <Divider />
 
           <div className={classes.container}>
-            <Typography variant="h4" gutterBottom>Design Your Palette</Typography>
+            <Typography variant="h4" gutterBottom>
+              Design Your Palette
+            </Typography>
 
             <div className={classes.buttons}>
               <Button

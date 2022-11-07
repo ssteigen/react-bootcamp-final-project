@@ -7,7 +7,7 @@ export default {
     height: (props) => (props.showingFullPalette ? "25%" : "50%"),
     margin: "0 auto",
     position: "relative",
-    verticalAlign: "top" /* fixes weird gap between rows */,
+    marginBottom: "-3.5px",
     width: "20%",
     "&:hover button": {
       opacity: 1,

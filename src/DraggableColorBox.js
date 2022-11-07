@@ -1,39 +1,11 @@
 import React from "react";
 
-import { Delete } from "@material-ui/icons";
+import DeleteIcon from "@material-ui/icons/Delete";
 import withStyles from "@material-ui/styles/withStyles";
 
 import { SortableElement } from "react-sortable-hoc";
 
-const styles = {
-  root: {
-    cursor: "pointer",
-    display: "inline-block",
-    height: "25%",
-    margin: "0 auto",
-    position: "relative",
-    verticalAlign: "top" /* fixes weird gap between rows */,
-    width: "20%",
-  },
-  boxContent: {
-    bottom: 0,
-    color: "black",
-    fontSize: "12px",
-    left: 0,
-    letterSpacing: "1px",
-    padding: "10px",
-    position: "absolute",
-    textTransform: "uppercase",
-    width: "100%",
-    "&:hover svg": {
-      color: "white",
-      transform: "scale(1.5)",
-    },
-  },
-  deleteIcon: {
-    transition: "all 0.3s ease-in-out",
-  },
-};
+import styles from "./styles/DraggableColorBoxStyles";
 
 const DraggableColorBox = SortableElement((props) => {
   const { classes, handleClick, name, color } = props;
@@ -42,7 +14,7 @@ const DraggableColorBox = SortableElement((props) => {
     <div className={classes.root} style={{ backgroundColor: color }}>
       <div className={classes.boxContent}>
         <span>{name}</span>
-        <Delete className={classes.deleteIcon} onClick={handleClick} />
+        <DeleteIcon className={classes.deleteIcon} onClick={handleClick} />
       </div>
     </div>
   );

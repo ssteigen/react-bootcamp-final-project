@@ -7,13 +7,13 @@ import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import MenuIcon from "@material-ui/icons/Menu";
 
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 
 import PaletteMetaForm from "./PaletteMetaForm";
 import styles from "./styles/PaletteFormNavStyles";
+import { ChevronRight } from "@material-ui/icons";
 
 class PaletteFormNav extends Component {
   constructor(props) {
@@ -63,7 +63,7 @@ class PaletteFormNav extends Component {
               onClick={handleDrawerOpen}
               className={classNames(classes.menuButton, open && classes.hide)}
             >
-              <MenuIcon />
+              <ChevronRight />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
               Create A Palette

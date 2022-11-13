@@ -1,10 +1,18 @@
+import bg from "./bg.svg";
+
 export default {
-  PaletteList: {
-    backgroundColor: "blue",
+  root: {
     height: "100vh",
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
+    backgroundColor: "#394bad",
+    /* background by SVGBackgrounds.com */
+    backgroundImage: `url(${bg})`,
+    overflow: "scroll",
+  },
+  heading: {
+    fontSize: "2rem",
   },
   container: {
     width: "50%",

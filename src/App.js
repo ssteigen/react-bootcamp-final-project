@@ -75,6 +75,8 @@ class App extends Component {
   }
 
   render() {
+    const {palettes} = this.state;
+
     return (
       <Switch>
         <Route
@@ -82,7 +84,7 @@ class App extends Component {
           path="/palette/new"
           render={(routeProps) => (
             <NewPaletteForm
-              palettes={this.state.palettes}
+              palettes={palettes}
               savePalette={this.savePalette}
               {...routeProps}
             />
@@ -93,7 +95,7 @@ class App extends Component {
           path="/"
           render={(routeProps) => (
             <PaletteList
-              palettes={this.state.palettes}
+              palettes={palettes}
               deletePalette={this.deletePalette}
               {...routeProps}
             />

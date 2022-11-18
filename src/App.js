@@ -123,6 +123,16 @@ class App extends Component {
             />
           )}
         />
+        {/* 404 Route */}
+        <Route
+          render={(routeProps) => (
+            <PaletteList
+              palettes={palettes}
+              deletePalette={this.deletePalette}
+              {...routeProps}
+            />
+          )}
+        />
       </Switch>
     );
   }

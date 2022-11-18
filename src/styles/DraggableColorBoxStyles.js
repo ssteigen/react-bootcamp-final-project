@@ -17,9 +17,7 @@ const styles = {
   boxContent: {
     bottom: 0,
     color: (props) =>
-      chroma(props.color).luminance() <= 0.08
-        ? "rgba(255,255,255,0.8)"
-        : "rgba(0,0,0,0.6)",
+      chroma(props.color).luminance() >= 0.08 ? "black" : "white",
     fontSize: "12px",
     left: 0,
     letterSpacing: "1px",
@@ -29,7 +27,7 @@ const styles = {
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
-    alignItems: 'center',
+    alignItems: "center",
   },
   deleteIcon: {
     transition: "all 0.3s ease-in-out",
